@@ -19,7 +19,7 @@ WORKDIR /go/src/github.com/sammy007/open-ethereum-pool/www
 RUN npm install -g ember-cli@2.9.1 \
     && npm install -g bower \
     && npm install \
-    && bower install \
+    && bower install --allow-root \
     && ./build.sh
 
 FROM golang
