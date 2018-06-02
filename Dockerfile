@@ -31,5 +31,7 @@ RUN make
 # npm
 COPY --from=www /go/src/github.com/sammy007/open-ethereum-pool/www /go/src/github.com/sammy007/open-ethereum-pool/www
 # cmd
+EXPOSE 8080
+EXPOSE 8008
 WORKDIR $GOPATH/src/github.com/sammy007/open-ethereum-pool
 CMD ./build/bin/open-ethereum-pool config.json
