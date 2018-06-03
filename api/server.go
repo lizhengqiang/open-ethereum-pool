@@ -108,7 +108,7 @@ func (s *ApiServer) listen() {
 	r.HandleFunc("/api/blocks", s.BlocksIndex)
 	r.HandleFunc("/api/payments", s.PaymentsIndex)
 	r.HandleFunc("/api/accounts/{login:0x[0-9a-fA-F]{40}}", s.AccountIndex)
-	r.NotFoundHandler = http.HandlerFunc(notFound)
+	r.NotFoundHandler = http.FileServer(http.Dir("/www/dist"))
 	err := http.ListenAndServe(s.config.Listen, r)
 	if err != nil {
 		log.Fatalf("Failed to start API: %v", err)
